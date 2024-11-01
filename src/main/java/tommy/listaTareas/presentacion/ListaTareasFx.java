@@ -9,16 +9,11 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import tommy.listaTareas.ListaTareasApplication;
 
-import java.io.IOException;
 
 public class ListaTareasFx extends Application {
 
 
     private ConfigurableApplicationContext applicationContext;
-
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
 
     @Override
     public  void init(){
@@ -34,6 +29,7 @@ public class ListaTareasFx extends Application {
         stage.show();
     }
 
+    @Override
     public void stop(){
         applicationContext.close(); //Cerramos la fábrica de spring
         Platform.exit(); //Cerramos la app de java fx
