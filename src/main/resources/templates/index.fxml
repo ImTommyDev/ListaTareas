@@ -2,15 +2,44 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tommy.listaTareas.controlador.IndexControlador">
    <children>
-      <Label layoutX="214.0" layoutY="20.0" text="Gestor de tareas">
+      <Label layoutX="194.0" layoutY="23.0" text="Gestor de tareas" textAlignment="CENTER" underline="true">
          <font>
-            <Font name="Monospaced Regular" size="18.0" />
+            <Font name="Monospaced Bold" size="22.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6980392336845398" green="0.545098066329956" blue="0.2862745225429535" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9999210016984634">
+                     <color>
+                        <Color red="0.8947368264198303" green="0.7588694095611572" blue="0.5550682544708252" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.6980392336845398" green="0.545098066329956" blue="0.2862745225429535" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
+      <TableView fx:id="tareaTabla" layoutX="151.0" layoutY="100.0" prefHeight="200.0" prefWidth="298.0">
+        <columns>
+          <TableColumn fx:id="idTareaColumna" prefWidth="75.0" text=" ID" />
+          <TableColumn fx:id="nombreTareaColumna" prefWidth="75.0" text="Tarea" />
+            <TableColumn fx:id="responsableTareaColumna" prefWidth="75.0" text="Responsable" />
+            <TableColumn fx:id="estatusTareaColumna" prefWidth="75.0" text="Estatus" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
