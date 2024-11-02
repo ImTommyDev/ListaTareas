@@ -1,6 +1,5 @@
 package tommy.listaTareas.controlador;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -49,6 +48,7 @@ public class IndexControlador implements Initializable {
         //configuro la tabal para que solo se pueda seleccionar un elemento
         tareaTabla.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         cargarRegistros();
+        listarTareas();
     }
 
     private void cargarRegistros(){
@@ -57,5 +57,12 @@ public class IndexControlador implements Initializable {
         nombreTareaColumna.setCellValueFactory(new PropertyValueFactory<>("nombreTarea"));
         responsableTareaColumna.setCellValueFactory(new PropertyValueFactory<>("responsable")); //le paso el mismo nombre que los atributos del objeto Tarea
         estatusTareaColumna.setCellValueFactory(new PropertyValueFactory<>("estatus"));
+    }
+
+    private void listarTareas(){
+        logger.info("Ejecutando lista de tareas...");
+        tareaLista.clear();
+        tareaLista.addAll(tareaServicio.listarTareas());
+        tareaTabla.setItems(tareaLista);
     }
 }
