@@ -22,4 +22,28 @@ public class Tarea {
     private String responsable;
     private String estatus;
 
+    public String getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
+    }
+
+
+    public String getNombreTarea() {
+        return nombreTarea;
+    }
+
+    public void setNombreTarea(String nombreTarea) {
+        this.nombreTarea = nombreTarea;
+    }
+
+    public String getResponsable() {
+        return responsable;
+    }
+
+    public void setResponsable(String responsable) {
+        this.responsable = responsable;
+    }
 }

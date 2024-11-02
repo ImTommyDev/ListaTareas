@@ -42,6 +42,13 @@ public class IndexControlador implements Initializable {
     //Para mostrar la información de la base de datos
     private final ObservableList<Tarea> tareaLista = FXCollections.observableArrayList(); //cada cambio en la lista se ve de forma automática
 
+    @FXML
+    private TextField nombreTareaTexto;
+    @FXML
+    private TextField responsableTexto;
+    @FXML
+    private TextField estatusTexto;
+
     //Método para que se pueda iniciar la app
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -64,5 +71,38 @@ public class IndexControlador implements Initializable {
         tareaLista.clear();
         tareaLista.addAll(tareaServicio.listarTareas());
         tareaTabla.setItems(tareaLista);
+    }
+
+    public void addTarea(){
+        if(nombreTareaTexto.getText().isEmpty()){
+            mostrarMensaje("Error de validadción","Debes indicar la tarea");
+        }else{
+            var tarea = new Tarea();
+            obtenerDatosFormulario(tarea);
+            tareaServicio.guardarTarea(tarea);
+            mostrarMensaje("Información","Tarea añadida con éxito");
+            limpiarFormulario();
+            listarTareas();
+        }
+    }
+
+    private void mostrarMensaje(String titulo, String mensaje){
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
+    }
+
+    private  void obtenerDatosFormulario(Tarea tarea){
+        tarea.setNombreTarea(nombreTareaTexto.getText());
+        tarea.setResponsable(responsableTexto.getText());
+        tarea.setEstatus(estatusTexto.getText());
+    }
+
+    private void limpiarFormulario(){
+        nombreTareaTexto.clear();
+        responsableTexto.clear();
+        estatusTexto.clear();
     }
 }
