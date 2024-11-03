@@ -39,6 +39,8 @@ public class IndexControlador implements Initializable {
     @FXML
     private TableColumn<Tarea,String> estatusTareaColumna;
 
+    private Integer idTarea;
+
     //Para mostrar la información de la base de datos
     private final ObservableList<Tarea> tareaLista = FXCollections.observableArrayList(); //cada cambio en la lista se ve de forma automática
 
@@ -104,5 +106,15 @@ public class IndexControlador implements Initializable {
         nombreTareaTexto.clear();
         responsableTexto.clear();
         estatusTexto.clear();
+    }
+
+    public void cargarTareaFormulario(){
+        var tarea = tareaTabla.getSelectionModel().getSelectedItem();
+        if(tarea != null){
+            idTarea = tarea.getIdTarea();
+            nombreTareaTexto.setText(tarea.getNombreTarea());
+            responsableTexto.setText(tarea.getResponsable());
+            estatusTexto.setText(tarea.getEstatus());
+        }
     }
 }

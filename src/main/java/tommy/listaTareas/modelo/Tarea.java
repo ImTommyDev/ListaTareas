@@ -22,6 +22,7 @@ public class Tarea {
     private String responsable;
     private String estatus;
 
+
     public String getEstatus() {
         return estatus;
     }
@@ -29,7 +30,6 @@ public class Tarea {
     public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
-
 
     public String getNombreTarea() {
         return nombreTarea;
@@ -45,5 +45,13 @@ public class Tarea {
 
     public void setResponsable(String responsable) {
         this.responsable = responsable;
+    }
+
+    public Integer getIdTarea() {
+        return idTarea;
+    }
+
+    public void setIdTarea(Integer idTarea) {
+        this.idTarea = idTarea;
     }
 }

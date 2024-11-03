@@ -33,7 +33,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <TableView fx:id="tareaTabla" layoutX="318.0" layoutY="64.0" prefHeight="248.0" prefWidth="323.0">
+      <TableView fx:id="tareaTabla" layoutX="318.0" layoutY="64.0" onMouseClicked="#cargarTareaFormulario" prefHeight="248.0" prefWidth="323.0">
         <columns>
           <TableColumn fx:id="idTareaColumna" prefWidth="75.0" text=" ID" />
           <TableColumn fx:id="nombreTareaColumna" prefWidth="75.0" text="Tarea" />
