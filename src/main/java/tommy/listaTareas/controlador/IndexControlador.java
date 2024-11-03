@@ -81,6 +81,9 @@ public class IndexControlador implements Initializable {
         }else{
             var tarea = new Tarea();
             obtenerDatosFormulario(tarea);
+
+            tarea.setIdTarea(null);
+
             tareaServicio.guardarTarea(tarea);
             mostrarMensaje("Información","Tarea añadida con éxito");
             limpiarFormulario();
@@ -97,12 +100,17 @@ public class IndexControlador implements Initializable {
     }
 
     private  void obtenerDatosFormulario(Tarea tarea){
+
+        if(idTarea != null){
+            tarea.setIdTarea(idTarea);
+        }
         tarea.setNombreTarea(nombreTareaTexto.getText());
         tarea.setResponsable(responsableTexto.getText());
         tarea.setEstatus(estatusTexto.getText());
     }
 
-    private void limpiarFormulario(){
+    public void limpiarFormulario(){
+        idTarea = null;
         nombreTareaTexto.clear();
         responsableTexto.clear();
         estatusTexto.clear();
@@ -115,6 +123,38 @@ public class IndexControlador implements Initializable {
             nombreTareaTexto.setText(tarea.getNombreTarea());
             responsableTexto.setText(tarea.getResponsable());
             estatusTexto.setText(tarea.getEstatus());
+        }
+    }
+
+    public void modificarTarea(){
+        if(idTarea == null){
+            mostrarMensaje("Información","Debes de seleccionar una tarea");
+            return;
+        }
+
+        if(nombreTareaTexto.getText().isEmpty()){
+            mostrarMensaje("Información","Debes rellenar al menos el nombre de la tarea");
+            nombreTareaTexto.requestFocus();
+            return;
+        }
+
+        var tarea = new Tarea();
+        obtenerDatosFormulario(tarea);
+        tareaServicio.guardarTarea(tarea);
+        mostrarMensaje("Información","Tarea modificada");
+        limpiarFormulario();
+        listarTareas();
+    }
+
+    public void eliminarTarea(){
+        var tarea = tareaTabla.getSelectionModel().getSelectedItem();
+        if(tarea != null){
+            tareaServicio.eliminarTarea(tarea);
+            mostrarMensaje("Información","Tarea " + tarea.getNombreTarea() + " eliminada con éxito ");
+            limpiarFormulario();
+            listarTareas();
+        }else{
+            mostrarMensaje("Error","No se ha seleccionado ninguna tarea");
         }
     }
 }

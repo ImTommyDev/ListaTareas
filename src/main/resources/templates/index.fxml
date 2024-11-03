@@ -116,15 +116,15 @@
                <font>
                   <Font name="Monospaced Regular" size="18.0" />
                </font></Button>
-            <Button fx:id="modificarBoton" layoutX="175.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #b28b49;" text="Modificar" textFill="WHITE">
+            <Button fx:id="modificarBoton" layoutX="175.0" layoutY="41.0" mnemonicParsing="false" onAction="#modificarTarea" style="-fx-background-color: #b28b49;" text="Modificar" textFill="WHITE">
                <font>
                   <Font name="Monospaced Regular" size="18.0" />
                </font></Button>
-            <Button fx:id="eliminarBoton" layoutX="353.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #b28b49;" text="Eliminar" textFill="WHITE">
+            <Button fx:id="eliminarBoton" layoutX="353.0" layoutY="41.0" mnemonicParsing="false" onAction="#eliminarTarea" style="-fx-background-color: #b28b49;" text="Eliminar" textFill="WHITE">
                <font>
                   <Font name="Monospaced Regular" size="18.0" />
                </font></Button>
-            <Button fx:id="limpiarBoton" layoutX="512.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: #b28b49;" text="Limpiar " textFill="WHITE">
+            <Button fx:id="limpiarBoton" layoutX="512.0" layoutY="41.0" mnemonicParsing="false" onAction="#limpiarFormulario" style="-fx-background-color: #b28b49;" text="Limpiar " textFill="WHITE">
                <font>
                   <Font name="Monospaced Regular" size="18.0" />
                </font></Button>
